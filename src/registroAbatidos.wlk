@@ -26,12 +26,20 @@ object cod {
 	method ultimoValorDeAbatidosConSize()= dias.get(dias.size()-1)
 	method abatidosSuperioresA(cuanto)= dias.filter({unDia => unDia > cuanto})
 	method valoresDeAbatidosPares()= dias.filter({unDia => unDia.even()})
-	method elValorDeAbatidos(cantidad)= dias.find({unDia => unDia == cantidad})
+	method elValorDeAbatidos(cantidad){
+		var retornar
+		try{
+			retornar = dias.find({unDia => unDia == cantidad})
+		} catch err{
+			self.error("Numero no encontrado")
+		}
+		return retornar
+	}
 	method abatidosSumando(cantidad)= dias.map({unDia => unDia + cantidad})
 	method abatidosEsAcotada(n1,n2)= dias.all({unDia => unDia.between(n1,n2)})
 	method algunDiaAbatioMasDe(cantidad)= dias.any({ unDia => unDia > cantidad})
 	method todosLosDiasAbatioMasDe(cantidad)= dias.all({ unDia => unDia > cantidad})
-	method cantidadAbatidosMayorALaPrimera()= dias.count({unDia => unDia > dias.first() })
+	method cantidadAbatidosMayorALaPrimera()= dias.count({unDia => unDia > self.primerValorDeAbatidos() })
 }
 
 
