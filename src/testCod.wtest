@@ -1,0 +1,59 @@
+import registroAbatidos.*
+
+
+test " Algun dia abatio 49? " {
+
+	assert.that(cod.algunDiaSeAbatio(49))
+}
+
+test " Algun dia abatio 52?"{
+		assert.notThat(cod.algunDiaSeAbatio(52))
+}
+
+test " Buscar el Maximo valor"{
+		assert.equals(cod.maximoValorDeAbatidos(), 62)
+}
+
+test " Buscar los abatidos pares"{
+	assert.equals(cod.valoresDeAbatidosPares(),[18,62])	
+}
+
+test " Los abatidos siempre se encuentran entre 10 y 100"{
+	assert.that(cod.abatidosEsAcotada(10,100))
+}
+
+test " Los abatidos no se encuentran entre 20 y 100"{
+	assert.notThat(cod.abatidosEsAcotada(20,100))
+}	
+
+test " Abatidos superiores a 35"{
+	assert.equals(cod.abatidosSuperioresA(35),[43,49,62,39]	)
+}
+
+test " Abatidos sumandole 5"{
+	assert.equals(cod.abatidosSumando(5),[48,23,54,67,38,44]	)
+}
+
+test " Total de abatidos"{
+	assert.equals(cod.totalAbatidos(),244)
+}
+
+test "Ultimo valor de los abatidos"{
+	assert.equals(cod.ultimoValorDeAbatidos(),39)
+}
+
+test " cantidad de abatidos mayor a la primera "{
+	assert.equals(cod.cantidadAbatidosMayorALaPrimera(),2)
+}
+
+test " algun dia se abatieron mas de 50?"{
+	assert.that(cod.algunDiaAbatioMasDe(50))
+}
+
+test " todos los días NO se abatieron mas de 30"{
+	assert.notThat(cod.todosLosDiasAbatioMasDe(30))
+}
+
+
+
+
